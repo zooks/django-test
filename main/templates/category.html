@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>Заголовок</title>
+	<link href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet'>
+	<script type='text/javascript' src='//code.jquery.com/jquery-1.10.2.min.js'></script>
+	<script type='text/javascript' src='//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+
+<style>
+.btn-product{
+	width: 100%;
+}
+.img-responsive {
+	width: 650px;
+	height: 450px;
+}
+</style>
+</head>
+<body>
+
+<main>
+
+<div class="container">
+	<div class="row">
+		<h1>{{category.name}}</h1>
+	</div>
+    <div class="row">
+		{% for item in goods %}
+    	<div class="col-md-12">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" >
+					<h4 class="text-center"><span class="label label-info">{{category.name}}</span></h4>
+					<a href="/item/{{item.alias}}"><img src="{{item.image}}" class="img-responsive"></a>
+					<div class="caption">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+								<h3>{{item.name}}</h3>
+							</div>
+							<div class="col-md-6 col-xs-6 price">
+								<h3>
+								<label>{{item.price}} р.</label></h3>
+							</div>
+						</div>
+						<p>{{item.description}}</p>
+						<div class="row">
+							<div class="col-md-6">
+								<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Нравится</a>
+							</div>
+							<div class="col-md-6">
+								<a href="/item/{{item.alias}}" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Купить</a></div>
+						</div>
+
+						<p> </p>
+					</div>
+				</div>
+			</div>
+        </div>
+		{% endfor %}
+	</div>
+</div>
+
+</main>
+
+</body>
+</html>
